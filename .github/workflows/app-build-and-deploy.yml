@@ -86,3 +86,14 @@ jobs:
             exit 1
           fi
           
+  build-and-publish-image:
+    name: Build and publish Docker image
+    needs: get-version
+    uses: elrayle/operations/.github/workflows/app-build-docker-image.yml@main
+    # secrets:
+    #   DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+    #   PRODUCTION_DEPLOYERS: ${{ secrets.PRODUCTION_DEPLOYERS }}
+    with:
+      deploy-env: ${{ inputs.deploy-env }}
+      application-type: ${{ inputs.application-type }}
+      image-tag: ${{ needs.get-version.outputs.version }}
