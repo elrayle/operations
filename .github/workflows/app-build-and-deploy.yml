@@ -7,22 +7,22 @@ name: Build and Deploy to prod service app
 
 on:
   workflow_call:
-    secrets: 
-      AZURE_CREDENTIALS:
-        description: 'Service principal that has access to the Azure apps (dev and prod) - Defined in org action secrets'
-        required: true
-      AZURE_WEBAPP_PUBLISH_PROFILE:
-        description: 'Publish profile for the Azure WebApp being deployed - Defined in repo action secrets'
-        required: true
-      AZURE_SECONDARY_WEBAPP_PUBLISH_PROFILE:
-        description: 'Publish profile for a secondary Azure WebApp if being deployed - Defined in repo action secrets'
-        required: false
-      DEPLOY_TOKEN:
-        description: 'Token that is used to determine if the deployment is allowed - Defined in org action secrets'
-        required: true
-      PRODUCTION_DEPLOYERS:
-        description: 'Name of the team that defines who can deploy to production - Defined in org action secrets'
-        required: true
+    # secrets: 
+    #   AZURE_CREDENTIALS:
+    #     description: 'Service principal that has access to the Azure apps (dev and prod) - Defined in org action secrets'
+    #     required: true
+    #   AZURE_WEBAPP_PUBLISH_PROFILE:
+    #     description: 'Publish profile for the Azure WebApp being deployed - Defined in repo action secrets'
+    #     required: true
+    #   AZURE_SECONDARY_WEBAPP_PUBLISH_PROFILE:
+    #     description: 'Publish profile for a secondary Azure WebApp if being deployed - Defined in repo action secrets'
+    #     required: false
+    #   DEPLOY_TOKEN:
+    #     description: 'Token that is used to determine if the deployment is allowed - Defined in org action secrets'
+    #     required: true
+    #   PRODUCTION_DEPLOYERS:
+    #     description: 'Name of the team that defines who can deploy to production - Defined in org action secrets'
+    #     required: true
 
     inputs:
       deploy-env:
