@@ -67,7 +67,7 @@ jobs:
           script_log=$(./operations/scripts/app-workflows/get-version.sh \
             ${{ inputs.deploy-env }} \
             ${{ needs.determine-trigger.outputs.is-release }} \
-            ${{ github.event.release.tag_name }} \
+            "${{ github.event.release.tag_name }}" \
             ${{ github.sha }}) || (echo "$script_log" && exit 1)
           echo -e "---- script log\n$script_log\n----"; \
           version=$(echo "$script_log" | tail -n 1)
