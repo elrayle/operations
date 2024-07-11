@@ -79,8 +79,9 @@ jobs:
     steps:
       - name: Validate version
         run: |
-          echo "VERSION: ${{ env.VERSION }}"
-          if [[ -z "${{ env.VERSION }}" ]]; then
+          version=${{ needs.get-version.outputs.version }}
+          echo "version: $version"
+          if [[ -z "$version" ]]; then
             echo "No version found, exiting"
             exit 1
           fi
